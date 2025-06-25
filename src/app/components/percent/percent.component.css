@@ -1,0 +1,31 @@
+.card-custom-title {
+    font-size: 32px;
+    color: #1B1D1E;
+    font-weight: bold;
+}
+
+.card-custom-subtitle {
+    font-size: 14px;
+    color: #333638;
+    font-weight: normal;
+}
+
+.card-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E5F0DB;
+    border: none;
+    width: 327px;
+    border-radius: 8px;
+    padding: 16px 20px;
+}
+
+i {
+    position: absolute;
+    margin-left: 125px;
+    color: #639339;
+    font-size: 24px;
+}
+
+

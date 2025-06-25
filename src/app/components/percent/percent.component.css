@@ -16,16 +16,20 @@
     align-items: center;
     background-color: #E5F0DB;
     border: none;
-    width: 327px;
     border-radius: 8px;
-    padding: 16px 20px;
+    width: 100%;
+    text-align: center;
 }
-
 i {
     position: absolute;
-    margin-left: 125px;
     color: #639339;
     font-size: 24px;
+    right: 10px;
+    top: 10px;
+}
+
+.action {
+    width: 100%;
 }
 
 

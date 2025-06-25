@@ -1,0 +1,67 @@
+.title-meal {
+    font-size: 16px;
+    color: #1B1D1E;
+}
+
+.date-meal {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.home-action {
+    margin-top: 40px;
+}
+
+.home-meals {
+    margin-top: 32px;
+}
+
+.card-custom {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px 14px 12px;
+    border: #DDDEDF 1px solid;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.dot-content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+h6 {
+    margin-bottom: 0;
+}
+
+.card-custom-time {
+    font-weight: bold;
+    font-size: 12px;
+    padding: 0;
+    margin-bottom: 0;
+    text-align: start;
+}
+
+.card-custom-title {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    text-align: start;
+    width: 100px;
+    margin-left: 12px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #CBE4B4;
+}
+
+.barra {
+    color: #DDDEDF;
+    text-align: start;
+    margin-left: 12px;
+}

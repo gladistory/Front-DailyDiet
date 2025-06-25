@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { PercentComponent } from './components/percent/percent.component';
 import { UiBaseComponent } from './components/ui-base/ui-base.component';
+import { RouterOutlet } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
-  imports: [NavbarComponent, PercentComponent, UiBaseComponent],
+  imports: [NavbarComponent, UiBaseComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

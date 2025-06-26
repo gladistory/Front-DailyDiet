@@ -1,0 +1,37 @@
+.card-custom {
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    background-color: #E5F0DB;
+    height: 100px;
+
+
+}
+.card-body {
+    background-color: #E5F0DB;
+    padding: 24px 0 24px 0;
+}
+
+.card-custom-title {
+    font-size: 32px;
+    color: #1B1D1E;
+    font-weight: bold;
+}
+
+.metrics-container {
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+   width: 100%;
+   background-color: #ffffff;
+   position:absolute;
+   padding: 0px 24px 0 24px;
+   padding-bottom: 32px;
+}
+
+i {
+    position: absolute;
+    color: #639339;
+    font-size: 24px;
+    left: 20px;
+    top: 20px;
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-primary-button',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './primary-button.component.css'
 })
 export class PrimaryButtonComponent {
+
+  @Input() textPrimaryButton: string = '';
+  @Input() icon: string = '';
+  @Input() disabled: boolean = false;
 
 }

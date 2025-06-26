@@ -18,6 +18,14 @@
     font-weight: bold;
 }
 
+i {
+    position: absolute;
+    color: #639339;
+    font-size: 24px;
+    left: 20px;
+    top: 20px;
+}
+
 .card-custom-subtitle {
     font-size: 14px;
     color: #333638;
@@ -40,19 +48,43 @@
     font-size: 14px;
 }
 
-
-
 .card-metrics {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #E5F0DB;
+    background-color: #EFF0F0;
     border: none;
     border-radius: 8px;
     text-align: center;
 }
 
 .content-metrics {
-    padding: 24px 0 24px 0;
-    
+    margin-top: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.card-body-metrics {
+    padding: 16px 0 16px 0;
+    text-align: center;
+}
+
+.diet {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-diet-fail {
+    padding: 16px;
+    text-align: center;
+    background-color: #F4E6E7;
+    border-radius: 8px;
+    margin-left: 12px;
+}
+
+.card-diet-success {
+    padding: 16px;
+    text-align: center;
+    background-color: #E5F0DB;
+    border-radius: 8px;
 }

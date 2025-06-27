@@ -10,26 +10,23 @@
     <div class="form-container mb-3">
         <div class="mb-3">
             <label class="form-label-custom">Nome</label>
-            <input type="text" class="form-control" required placeholder="Ex: Salada de frutas" name="name"
-                [(ngModel)]="meal.name" #nomeRef="ngModel">
+            <input type="text" class="form-control" required name="name" [(ngModel)]="meal.name" #nomeRef="ngModel">
         </div>
         <div class="mb-3">
             <label class="form-label-custom">Descrição</label>
-            <textarea class="form-control" rows="4" required placeholder="Ex: Uma deliciosa salada de frutas"
-                name="description" [(ngModel)]="meal.description" #descricaoRef="ngModel"></textarea>
+            <textarea class="form-control" rows="4" required name="description" [(ngModel)]="meal.description"
+                #descricaoRef="ngModel"></textarea>
         </div>
 
         <div class="data-container mb-3">
             <div>
                 <label class="form-label-custom">Data</label>
-                <input type="text" class="form-control" required placeholder="Ex: 2023-01-01" name="date"
-                    [(ngModel)]="meal.date" #dataRef="ngModel">
+                <input type="text" class="form-control" required name="date" [(ngModel)]="meal.date" #dataRef="ngModel">
             </div>
 
             <div>
                 <label class="form-label-custom">Hora</label>
-                <input type="text" class="form-control" required placeholder="Ex: 12:00" name="time"
-                    [(ngModel)]="meal.time" #horaRef="ngModel">
+                <input type="text" class="form-control" required name="time" [(ngModel)]="meal.time" #horaRef="ngModel">
             </div>
         </div>
 
@@ -42,7 +39,9 @@
 
             <input type="radio" class="btn-check" name="isInDiet" id="danger-outlined" value="false" autocomplete="off"
                 [(ngModel)]="meal.isInDiet">
-            <label class="btn btn-outline-danger button" for="danger-outlined">Não</label>
+            <label class="btn btn-outline-danger button" for="danger-outlined">
+                Não
+            </label>
         </div>
 
         <div class="action-button">

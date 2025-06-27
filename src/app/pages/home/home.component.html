@@ -1,11 +1,12 @@
 <div class="home-container">
-    <app-percent [link]="'/view-metrics'"></app-percent>
+    <app-percent routerLink="/view-metrics"></app-percent>
 
     <div class="home-action">
         <div>
             <h2 class=" title-meal mt-3">Refeições</h2>
             <div>
-                <app-primary-button [textPrimaryButton]="'Nova refeição'" [icon]="'ph ph-plus'"></app-primary-button>
+                <app-primary-button [textPrimaryButton]="'Nova refeição'" [icon]="'ph ph-plus'"
+                    routerLink="/create-meal"></app-primary-button>
             </div>
         </div>
     </div>

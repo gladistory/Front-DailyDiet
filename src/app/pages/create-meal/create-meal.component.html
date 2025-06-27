@@ -1,8 +1,52 @@
 <div class="card-custom">
     <div class="card-body">
         <a routerLink="/"><i class="ph ph-arrow-left"></i></a>
-        <h6 class="card-custom-subtitle">das refeições dentro da dieta</h6>
+        <h6 class="card-custom-subtitle">Nova refeição</h6>
     </div>
-
     <div class="metrics-container"></div>
 </div>
+
+<form #form="ngForm" novalidate>
+    <div class="form-container mb-3">
+        <div class="mb-3">
+            <label class="form-label-custom">Nome</label>
+            <input type="text" class="form-control" required placeholder="Ex: Salada de frutas" name="name"
+                [(ngModel)]="meal.name" #nomeRef="ngModel">
+        </div>
+        <div class="mb-3">
+            <label class="form-label-custom">Descrição</label>
+            <textarea class="form-control" rows="4" required placeholder="Ex: Uma deliciosa salada de frutas"
+                name="description" [(ngModel)]="meal.description" #descricaoRef="ngModel"></textarea>
+        </div>
+
+        <div class="data-container mb-3">
+            <div>
+                <label class="form-label-custom">Data</label>
+                <input type="text" class="form-control" required placeholder="Ex: 2023-01-01" name="date"
+                    [(ngModel)]="meal.date" #dataRef="ngModel">
+            </div>
+
+            <div>
+                <label class="form-label-custom">Hora</label>
+                <input type="text" class="form-control" required placeholder="Ex: 12:00" name="time"
+                    [(ngModel)]="meal.time" #horaRef="ngModel">
+            </div>
+        </div>
+
+        <label class="form-label-custom mb-1">Está dentro da dieta?</label>
+
+        <div class="d-flex justify-content-between">
+            <input type="radio" class="btn-check" name="isInDiet" id="success-outlined" value="true" autocomplete="off"
+                [(ngModel)]="meal.isInDiet">
+            <label class="btn btn-outline-success button" for="success-outlined">Sim</label>
+
+            <input type="radio" class="btn-check" name="isInDiet" id="danger-outlined" value="false" autocomplete="off"
+                [(ngModel)]="meal.isInDiet">
+            <label class="btn btn-outline-danger button" for="danger-outlined">Não</label>
+        </div>
+
+        <div class="action-button">
+            <app-primary-button [textPrimaryButton]="'Cadastrar refeição'" (click)="saveMeal()"></app-primary-button>
+        </div>
+    </div>
+</form>

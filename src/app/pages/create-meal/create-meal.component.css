@@ -2,13 +2,20 @@
     align-items: center;
     width: 100%;
     text-align: center;
-    background-color: #E5F0DB;
+    background-color: #DDDEDF;
     height: 100px;
 
 
 }
+
+.card-custom-subtitle {
+    font-size: 18px;
+    color: #333638;
+    font-weight: bold;
+}
+
 .card-body {
-    background-color: #E5F0DB;
+    background-color: #DDDEDF;
     padding: 24px 0 24px 0;
 }
 
@@ -30,8 +37,43 @@
 
 i {
     position: absolute;
-    color: #639339;
+    color: #333638;
     font-size: 24px;
-    left: 20px;
-    top: 20px;
+    left: 23px;
+    top: 23px;
+}
+
+.form-container {
+    margin-top: 24px;
+    padding: 0 24px 0 24px;
+}
+
+.form-label-custom {
+    color: #333638;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-control :focus {
+    color: #333638;
+}
+
+.data-container {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.form-check {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    padding: 16px 65px 16px 65px;
+}
+
+
+.action-button {
+    margin-top: 80px;
 }

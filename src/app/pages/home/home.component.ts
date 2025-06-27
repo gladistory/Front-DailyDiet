@@ -5,7 +5,7 @@ import { PrimaryButtonComponent } from "../../components/primary-button/primary-
 
 @Component({
   selector: 'app-home',
-  imports: [PercentComponent, PrimaryButtonComponent],
+  imports: [PercentComponent, PrimaryButtonComponent, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

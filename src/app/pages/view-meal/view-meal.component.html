@@ -6,7 +6,9 @@
         <p class="meal-description">{{meal?.description}}</p>
         <p class="meal-date">{{meal?.date}}</p>
         <p class="meal-date-time">{{meal?.time}}</p>
-        <p class="meal-diet"><i class="dot-green"></i>{{meal?.isInDiet ? 'dentro da dieta' : 'fora da dieta'}}</p>
+        <p class="meal-diet"><i
+                class="{{meal?.isInDiet ? 'dot-green' : 'dot-red'}}"></i>{{meal?.isInDiet ? 'dentro da dieta' : 'fora da dieta'}}
+        </p>
     </div>
 
     <div class="meal-actions">

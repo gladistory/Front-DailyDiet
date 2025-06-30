@@ -1,5 +1,7 @@
-<div class="card-custom">
-    <div class="card-body" ngStyle="isDiet ? { 'background-color': '#E5F0DB' } : {}">
+<div class="card-custom"
+    [ngStyle]="meal?.isInDiet ? { 'background-color': '#E5F0DB' } : { 'background-color': '#F4E6E7' }">
+    <div class="card-body"
+        [ngStyle]="meal?.isInDiet ? { 'background-color': '#E5F0DB' } : { 'background-color': '#F4E6E7' }">
         <a routerLink="/"><i class="ph ph-arrow-left"></i></a>
         <h6 class="card-custom-subtitle">{{ title }}</h6>
     </div>

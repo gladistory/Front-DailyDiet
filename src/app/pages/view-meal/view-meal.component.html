@@ -16,6 +16,7 @@
             <app-primary-button [textPrimaryButton]="'Editar refeição'"
                 [icon]="'ph ph-pencil-simple-line'"></app-primary-button>
         </div>
-        <app-secundary-button [textSecundaryButton]="'Excluir refeição'" [icon]="'ph ph-trash'"></app-secundary-button>
+        <app-secundary-button (click)="deleteMeal()" [textSecundaryButton]="'Excluir refeição'"
+            [icon]="'ph ph-trash'"></app-secundary-button>
     </div>
 </div>

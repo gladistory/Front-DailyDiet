@@ -14,7 +14,7 @@ import { Meal } from '../../interfaces/Meal';
 })
 export class ViewMealComponent {
 
-  constructor(private mealsService: MealsService, private route: ActivatedRoute) { }
+  constructor(private mealsService: MealsService, private route: ActivatedRoute, private router: Router) { }
 
   meal: Meal | undefined;
 
@@ -22,6 +22,14 @@ export class ViewMealComponent {
     const mealId = this.route.snapshot.paramMap.get('id');
     if (mealId) {
       this.meal = this.mealsService.getMealById(mealId);
+    }
+  }
+
+  deleteMeal() {
+    if (this.meal) {
+      alert(`Você realmente deseja excluir a refeição ${this.meal.name}?`);
+      this.mealsService.deleteMeal(this.meal.id);
+      this.router.navigate(['/home']);
     }
   }
 

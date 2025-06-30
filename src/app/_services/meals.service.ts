@@ -26,4 +26,9 @@ export class MealsService {
   getMealById(id: string): Meal | undefined {
     return this.meals.find(meal => meal.id === id);
   }
+
+  deleteMeal(id: string): void {
+    this.meals = this.meals.filter(meal => meal.id !== id);
+    localStorage.setItem('meals', JSON.stringify(this.meals));
+  }
 }

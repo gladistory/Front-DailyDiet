@@ -31,17 +31,14 @@
         </div>
 
         <label class="form-label-custom mb-1">Está dentro da dieta?</label>
-
-        <div class="d-flex justify-content-between">
-            <input type="radio" class="btn-check" name="isInDiet" id="success-outlined" value="true" autocomplete="off"
+        <div class="d-flex justify-content-between radio-group">
+            <input type="radio" class="btn-check" name="isInDiet" id="inDietTrue" value="true"
                 [(ngModel)]="meal.isInDiet">
-            <label class="btn btn-outline-success button" for="success-outlined">Sim</label>
+            <label class="btn button" for="inDietTrue"><i class="dot-green"></i>Sim</label>
 
-            <input type="radio" class="btn-check" name="isInDiet" id="danger-outlined" value="false" autocomplete="off"
+            <input type="radio" class="btn-check red" name="isInDiet" id="inDietFalse" value="false"
                 [(ngModel)]="meal.isInDiet">
-            <label class="btn btn-outline-danger button" for="danger-outlined">
-                Não
-            </label>
+            <label class="btn button" for="inDietFalse"><i class="dot-red"></i>Não</label>
         </div>
 
         <div class="action-button">

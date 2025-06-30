@@ -1,0 +1,12 @@
+<div class="delete-modal">
+    <h2 class="title-modal">Deseja realmente excluir o registro da refeição?</h2>
+
+    <mat-dialog-actions>
+        <div>
+            <app-secundary-button (click)="closeDialog()" [textSecundaryButton]="'Cancelar'"></app-secundary-button>
+        </div>
+        <div>
+            <app-primary-button (click)="deleteMeal()" [textPrimaryButton]="'Sim, excluir'"></app-primary-button>
+        </div>
+    </mat-dialog-actions>
+</div>

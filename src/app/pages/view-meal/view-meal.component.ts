@@ -5,6 +5,12 @@ import { SecundaryButtonComponent } from '../../components/secundary-button/secu
 import { MealsService } from '../../_services/meals.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Meal } from '../../interfaces/Meal';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { DeleteComponent } from './deleteModal/delete/delete.component';
+
+
+
 
 @Component({
   selector: 'app-view-meal',
@@ -14,7 +20,7 @@ import { Meal } from '../../interfaces/Meal';
 })
 export class ViewMealComponent {
 
-  constructor(private mealsService: MealsService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private mealsService: MealsService, private route: ActivatedRoute, private router: Router, private dialog: MatDialog) { }
 
   meal: Meal | undefined;
 
@@ -25,12 +31,11 @@ export class ViewMealComponent {
     }
   }
 
-  deleteMeal() {
-    if (this.meal) {
-      alert(`Você realmente deseja excluir a refeição ${this.meal.name}?`);
-      this.mealsService.deleteMeal(this.meal.id);
-      this.router.navigate(['/home']);
-    }
+  deleteModal() {
+    this.dialog.open(DeleteComponent, {
+      data: this.meal,
+    });
   }
+
 
 }

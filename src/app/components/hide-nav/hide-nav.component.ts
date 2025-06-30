@@ -24,7 +24,6 @@ export class HideNavComponent {
     const mealId = this.route.snapshot.paramMap.get('id');
     if (mealId) {
       this.meal = this.mealsService.getMealById(mealId);
-      console.log(this.meal);
     }
 
   }

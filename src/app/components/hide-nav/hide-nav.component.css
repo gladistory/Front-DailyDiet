@@ -1,0 +1,44 @@
+.card-custom {
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    background-color: #DDDEDF;
+    height: 100px;
+
+
+}
+
+.card-custom-subtitle {
+    font-size: 18px;
+    color: #333638;
+    font-weight: bold;
+}
+
+.card-body {
+    background-color: #DDDEDF;
+    padding: 24px 0 24px 0;
+}
+
+.card-custom-title {
+    font-size: 32px;
+    color: #1B1D1E;
+    font-weight: bold;
+}
+
+.metrics-container {
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+   width: 100%;
+   background-color: #ffffff;
+   position:absolute;
+   padding: 0px 24px 0 24px;
+   padding-bottom: 32px;
+}
+
+.ph-arrow-left {
+    position: absolute;
+    color: #333638;
+    font-size: 24px;
+    left: 23px;
+    top: 23px;
+}

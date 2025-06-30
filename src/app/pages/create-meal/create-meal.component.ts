@@ -3,11 +3,13 @@ import { RouterLink, Router } from '@angular/router';
 import { PrimaryButtonComponent } from '../../components/primary-button/primary-button.component';
 import { FormsModule } from '@angular/forms';
 import { Meal } from '../../interfaces/Meal';
+import { HideNavComponent } from '../../components/hide-nav/hide-nav.component';
+
 
 @Component({
   selector: 'app-create-meal',
   standalone: true,
-  imports: [RouterLink, PrimaryButtonComponent, FormsModule],
+  imports: [PrimaryButtonComponent, FormsModule, HideNavComponent],
   templateUrl: './create-meal.component.html',
   styleUrl: './create-meal.component.css'
 })

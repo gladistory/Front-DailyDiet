@@ -4,6 +4,7 @@ import { CreateMealComponent } from './pages/create-meal/create-meal.component';
 import { ViewMetricsComponent } from './pages/view-metrics/view-metrics.component';
 import { NotIsDietComponent } from './pages/not-is-diet/not-is-diet.component';
 import { IsdietComponent } from './pages/isdiet/isdiet.component';
+import { ViewMealComponent } from './pages/view-meal/view-meal.component';
 
 export const routes: Routes = [
     {
@@ -34,6 +35,11 @@ export const routes: Routes = [
     {
         path: 'is-diet',
         component: IsdietComponent
+    },
+
+    {
+        path: 'view-meal/:id',
+        component: ViewMealComponent
     }
 
 ];

@@ -21,7 +21,14 @@ export class AppComponent {
     '/not-is-diet'
   ];
 
+  private readonly hiddenNavbarPatterns = [
+    /^\/view-meal\/[^\/]+$/
+  ];
+
   get hideNavbar() {
-    return this.hiddenNavbarRoutes.includes(this.router.url);
+    return (
+      this.hiddenNavbarRoutes.includes(this.router.url) ||
+      this.hiddenNavbarPatterns.some(pattern => pattern.test(this.router.url))
+    );
   }
 }

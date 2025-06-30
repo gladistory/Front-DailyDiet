@@ -15,4 +15,12 @@ export class MealsService {
     console.log('Meal added successfully!', meal);
     localStorage.setItem('meals', JSON.stringify(this.meals));
   }
+
+  getMeals(): Meal[] {
+    const mealsFromStorage = localStorage.getItem('meals');
+    if (mealsFromStorage) {
+      this.meals = JSON.parse(mealsFromStorage);
+    }
+    return this.meals;
+  }
 }

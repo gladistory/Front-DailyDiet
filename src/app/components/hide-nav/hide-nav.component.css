@@ -2,10 +2,8 @@
     align-items: center;
     width: 100%;
     text-align: center;
-    background-color: #DDDEDF;
+    background-color: #E5F0DB;
     height: 100px;
-
-
 }
 
 .card-custom-subtitle {
@@ -15,7 +13,7 @@
 }
 
 .card-body {
-    background-color: #DDDEDF;
+    background-color: #E5F0DB;
     padding: 24px 0 24px 0;
 }
 

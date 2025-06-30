@@ -1,4 +1,4 @@
-<div class="home-container">
+<div class="home-container" *ngIf="meals && meals.length > 0">
     <app-percent routerLink="/view-metrics"></app-percent>
 
     <div class="home-action">
@@ -11,87 +11,33 @@
         </div>
     </div>
 
-    <div class="home-meals">
+    <div class="home-meals" *ngFor="let date of (mealsByDate | keyvalue)">
         <div class="home-meals-title">
-            <h3 class="date-meal">12.08.22</h3>
+            <h3 class="date-meal">{{ date.key }}</h3>
         </div>
-
-        <div class="card-custom">
-            <h6 class="card-custom-time">18:00</h6>
-            <i class="barra">|</i>
-            <h5 class="card-custom-title">Almoço</h5>
-            <div class="dot-content"><i class="dot"></i></div>
-        </div>
-
-        <div class="card-custom">
-            <h6 class="card-custom-time">18:00</h6>
-            <i class="barra">|</i>
-            <h5 class="card-custom-title">Almoço</h5>
-            <div class="dot-content"><i class="dot"></i></div>
-        </div>
-
-        <div class="card-custom">
-            <h6 class="card-custom-time">18:00</h6>
-            <i class="barra">|</i>
-            <h5 class="card-custom-title">Almoço</h5>
-            <div class="dot-content"><i class="dot"></i></div>
-        </div>
-
-        <div class="card-custom">
-            <h6 class="card-custom-time">18:00</h6>
-            <i class="barra">|</i>
-            <h5 class="card-custom-title">Almoço</h5>
-            <div class="dot-content"><i class="dot"></i></div>
-        </div>
-
-        <div class="card-custom">
-            <h6 class="card-custom-time">18:00</h6>
-            <i class="barra">|</i>
-            <h5 class="card-custom-title">Almoço</h5>
-            <div class="dot-content"><i class="dot"></i></div>
-        </div>
+        <ng-container *ngFor="let meal of date.value">
+            <div class="card-custom">
+                <h6 class="card-custom-time">{{ meal.time }}</h6>
+                <i class="barra">|</i>
+                <h5 class="card-custom-title">{{ meal.name }}</h5>
+                <div class="dot-content"><i class="dot"></i></div>
+            </div>
+        </ng-container>
     </div>
+</div>
 
-    <div class="home-meals">
-        <div class="home-meals-title">
-            <h3 class="date-meal">12.08.22</h3>
+<div class="home-container" *ngIf="meals && meals.length === 0">
+    <h2 class="text-center">Bem-vindo ao DailyDiet</h2>
+    <p class=" text-center">Aqui você pode controlar suas refeições e manter uma alimentação saudável.</p>
+    <div class="d-flex justify-content-center mb-4">
+        <img class="img-fluid" style="width: 250px;" src="home.jpg" alt="">
+    </div>
+    <div class="home-action">
+        <div>
+            <div>
+                <app-primary-button [textPrimaryButton]="'Adicionar Refeição'" [icon]="'ph ph-plus'"
+                    routerLink="/create-meal"></app-primary-button>
+            </div>
         </div>
-
-        <div class="card-custom">
-            <h6 class="card-custom-time">18:00</h6>
-            <i class="barra">|</i>
-            <h5 class="card-custom-title">Almoço</h5>
-            <div class="dot-content"><i class="dot"></i></div>
-        </div>
-
-        <div class="card-custom">
-            <h6 class="card-custom-time">18:00</h6>
-            <i class="barra">|</i>
-            <h5 class="card-custom-title">Almoço</h5>
-            <div class="dot-content"><i class="dot"></i></div>
-        </div>
-
-        <div class="card-custom">
-            <h6 class="card-custom-time">18:00</h6>
-            <i class="barra">|</i>
-            <h5 class="card-custom-title">Almoço</h5>
-            <div class="dot-content"><i class="dot"></i></div>
-        </div>
-
-        <div class="card-custom">
-            <h6 class="card-custom-time">18:00</h6>
-            <i class="barra">|</i>
-            <h5 class="card-custom-title">Almoço</h5>
-            <div class="dot-content"><i class="dot"></i></div>
-        </div>
-
-        <div class="card-custom">
-            <h6 class="card-custom-time">18:00</h6>
-            <i class="barra">|</i>
-            <h5 class="card-custom-title">Almoço</h5>
-            <div class="dot-content"><i class="dot"></i></div>
-        </div>
-
-
     </div>
 </div>

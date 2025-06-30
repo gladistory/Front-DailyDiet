@@ -19,6 +19,7 @@ export class CreateMealComponent {
   constructor(private router: Router, private mealsService: MealsService) { }
 
   meal: Meal = {
+    id: crypto.randomUUID(),
     name: '',
     description: '',
     date: '',
@@ -45,6 +46,7 @@ export class CreateMealComponent {
 
   clearForm() {
     this.meal = {
+      id: crypto.randomUUID(),
       name: '',
       description: '',
       date: '',

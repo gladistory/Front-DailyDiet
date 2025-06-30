@@ -12,6 +12,11 @@ export const routes: Routes = [
     },
 
     {
+        path: 'home',
+        component: HomeComponent
+    },
+
+    {
         path: 'create-meal',
         component: CreateMealComponent
     },
@@ -22,12 +27,12 @@ export const routes: Routes = [
     },
 
     {
-        path: 'notisdiet',
+        path: 'not-is-diet',
         component: NotIsDietComponent
     },
 
     {
-        path: 'isdiet',
+        path: 'is-diet',
         component: IsdietComponent
     }
 

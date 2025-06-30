@@ -14,7 +14,14 @@ export class AppComponent {
   title = 'Front-DailyDiet';
   constructor(private router: Router) { }
 
+  private readonly hiddenNavbarRoutes = [
+    '/view-metrics',
+    '/create-meal',
+    '/is-diet',
+    '/not-is-diet'
+  ];
+
   get hideNavbar() {
-    return this.router.url === '/view-metrics' || this.router.url === '/create-meal' || this.router.url === '/isdiet' || this.router.url === '/notisdiet';
+    return this.hiddenNavbarRoutes.includes(this.router.url);
   }
 }

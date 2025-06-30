@@ -3,5 +3,5 @@ export interface Meal {
     description: string;
     date: string;
     time: string;
-    isInDiet: boolean;
+    isInDiet: string | boolean;
 }

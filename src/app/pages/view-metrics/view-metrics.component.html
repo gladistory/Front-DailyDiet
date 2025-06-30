@@ -1,7 +1,8 @@
-<div class="card-custom">
-    <div class="card-body">
-        <a routerLink="/"><i class="ph ph-arrow-left"></i></a>
-        <h5 class="card-custom-title">90,86%</h5>
+<div class="card-custom" [ngStyle]="{ 'background-color': porcent >= 50 ? '#E5F0DB' : '#F8D7DA' }">
+    <div class="card-body" [ngStyle]="{ 'background-color': porcent >= 50 ? '#E5F0DB' : '#F8D7DA' }">
+        <a routerLink="/"><i class="ph ph-arrow-left"
+                [ngStyle]="{'color': porcent >= 50 ? '#639339' : '#BF3B44'}"></i></a>
+        <h5 class="card-custom-title">{{ porcent }}%</h5>
         <h6 class="card-custom-subtitle">das refeições dentro da dieta</h6>
     </div>
 
@@ -13,26 +14,26 @@
 <div class="content-metrics">
     <div class="card card-metrics mb-3">
         <div class="card-body-metrics">
-            <h5 class="card-custom-title">22</h5>
+            <h5 class="card-custom-title">{{ bestSeries }}</h5>
             <h6 class="card-custom-subtitle">melhor sequência de pratos dentro da dieta</h6>
         </div>
     </div>
 
     <div class="card card-metrics mb-3">
         <div class="card-body-metrics">
-            <h5 class="card-custom-title">109</h5>
+            <h5 class="card-custom-title">{{ totalMeals }}</h5>
             <h6 class="card-custom-subtitle">refeições registradas</h6>
         </div>
     </div>
 
     <div class="diet mb-3">
         <div class="card-diet-success">
-            <h5 class="card-custom-title">109</h5>
+            <h5 class="card-custom-title">{{ totalInDietMeals }}</h5>
             <h6 class="card-custom-subtitle">refeições dentro da dieta</h6>
         </div>
 
         <div class="card-diet-fail">
-            <h5 class="card-custom-title">109</h5>
+            <h5 class="card-custom-title">{{ totalOutDietMeals }}</h5>
             <h6 class="card-custom-subtitle">refeições fora da dieta</h6>
         </div>
     </div>

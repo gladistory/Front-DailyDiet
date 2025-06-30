@@ -23,18 +23,7 @@ export class PercentComponent {
 
   ngOnInit() {
     this.meals = this.mealsService.getMeals();
-    this.getMealPercent();
+    this.porcent = this.mealsService.getMealPercent();
   }
 
-
-  getMealPercent() {
-    const totalMeals = this.meals.length;
-    const inDietMeals = this.meals.filter(meal => meal.isInDiet).length;
-
-    if (totalMeals === 0) {
-      return this.porcent = 0;
-    }
-
-    return this.porcent = Math.round((inDietMeals / totalMeals) * 100);
-  }
 }

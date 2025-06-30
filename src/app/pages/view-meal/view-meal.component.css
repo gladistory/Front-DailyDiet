@@ -1,0 +1,74 @@
+.meals-container {
+    margin-top: 20px;
+    padding: 0 24px 0 24px;
+}
+
+.meal-name {
+    font-weight: bold;
+    font-size: 20px;
+    color: #1B1D1E;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.meal-description {
+    color: #1B1D1E;
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.meal-date {
+    color: #1B1D1E;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.meal-date-time {
+    color: #1B1D1E;
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 24px;
+}
+
+.dot-green {
+    width: 8px;
+    height: 8px;
+    background-color: #639339;
+    border-radius: 50%;
+    position: relative;
+    right: 8px;
+    display: inline-block;
+}
+
+.dot-red {
+    width: 8px;
+    height: 8px;
+    background-color: #BF3B44;
+    border-radius: 50%;
+    position: relative;
+    right: 8px;
+    display: inline-block;
+}
+
+.meal-diet {
+   background-color: #EFF0F0;
+   font-size: 14px;
+   padding: 8px 16px 8px 16px;
+   width: 144px;
+   text-align: center;
+   border-radius: 1000px;
+}
+
+.meal-actions {
+    position: fixed;
+    padding: 0 24px 0 24px;
+    left: 0;
+    bottom: 40px;
+    width: 100%;
+    z-index: 100;
+}
+    
+

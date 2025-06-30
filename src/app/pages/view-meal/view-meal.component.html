@@ -1,1 +1,19 @@
 <app-hide-nav [title]="'Refeição'"></app-hide-nav>
+
+<div class="meals-container">
+    <div class="meal-item">
+        <h6 class="meal-name">Sanduíche</h6>
+        <p class="meal-description">Sanduíche de pão integral com atum e salada de alface e tomate</p>
+        <p class="meal-date">Data e Hora</p>
+        <p class="meal-date-time">12/08/2022 às 16:00</p>
+        <p class="meal-diet"><i class="dot-green"></i>dentro da dieta</p>
+    </div>
+
+    <div class="meal-actions">
+        <div class="mb-2">
+            <app-primary-button [textPrimaryButton]="'Editar refeição'"
+                [icon]="'ph ph-pencil-simple-line'"></app-primary-button>
+        </div>
+        <app-secundary-button [textSecundaryButton]="'Excluir refeição'" [icon]="'ph ph-trash'"></app-secundary-button>
+    </div>
+</div>

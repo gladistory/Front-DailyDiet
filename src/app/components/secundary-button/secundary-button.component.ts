@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-secundary-button',
@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './secundary-button.component.css'
 })
 export class SecundaryButtonComponent {
+
+  @Input() textSecundaryButton: string = '';
+  @Input() icon: string = '';
 
 }

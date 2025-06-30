@@ -1,1 +1,6 @@
-<button class="secundary-button"><i class="ph ph-trash"></i>Secundary Button</button>
+<button class="secundary-button">
+    @if (icon) {
+    <i class="{{ icon }}"></i>
+    }
+    {{ textSecundaryButton }}
+</button>

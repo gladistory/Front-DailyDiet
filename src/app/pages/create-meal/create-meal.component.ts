@@ -4,6 +4,7 @@ import { PrimaryButtonComponent } from '../../components/primary-button/primary-
 import { FormsModule } from '@angular/forms';
 import { Meal } from '../../interfaces/Meal';
 import { HideNavComponent } from '../../components/hide-nav/hide-nav.component';
+import { MealsService } from '../../_services/meals.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { HideNavComponent } from '../../components/hide-nav/hide-nav.component';
 })
 export class CreateMealComponent {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private mealsService: MealsService) { }
 
   meal: Meal = {
     name: '',
@@ -26,15 +27,30 @@ export class CreateMealComponent {
   };
 
   saveMeal() {
-    console.log('Meal saved successfully! ', this.meal);
 
     const isDietBool = Boolean(this.meal.isInDiet === 'true' || this.meal.isInDiet === true);
+
+    this.meal.isInDiet = isDietBool;
+
+    this.mealsService.adicionarMeal(this.meal);
+
+    this.clearForm()
 
     if (isDietBool === true) {
       this.router.navigate(['/is-diet']);
     } else if (isDietBool === false) {
       this.router.navigate(['/not-is-diet']);
-    }
+    };
+  }
+
+  clearForm() {
+    this.meal = {
+      name: '',
+      description: '',
+      date: '',
+      time: '',
+      isInDiet: ''
+    };
   }
 
 }

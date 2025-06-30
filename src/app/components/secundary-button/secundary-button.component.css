@@ -6,7 +6,9 @@
     font-weight: bold;
     font-size: 14px;
     display: flex;
+    width: 100%;
     align-items: center;
+    justify-content: center;
 }
 .secundary-button:hover {
     background-color: #DDDEDF;

@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { CreateMealComponent } from './pages/create-meal/create-meal.component';
 import { ViewMetricsComponent } from './pages/view-metrics/view-metrics.component';
+import { NotIsDietComponent } from './pages/not-is-diet/not-is-diet.component';
+import { IsdietComponent } from './pages/isdiet/isdiet.component';
 
 export const routes: Routes = [
     {
@@ -17,5 +19,16 @@ export const routes: Routes = [
     {
         path: 'view-metrics',
         component: ViewMetricsComponent
+    },
+
+    {
+        path: 'notisdiet',
+        component: NotIsDietComponent
+    },
+
+    {
+        path: 'isdiet',
+        component: IsdietComponent
     }
+
 ];

@@ -15,6 +15,6 @@ export class AppComponent {
   constructor(private router: Router) { }
 
   get hideNavbar() {
-    return this.router.url === '/view-metrics' || this.router.url === '/create-meal';
+    return this.router.url === '/view-metrics' || this.router.url === '/create-meal' || this.router.url === '/isdiet' || this.router.url === '/notisdiet';
   }
 }

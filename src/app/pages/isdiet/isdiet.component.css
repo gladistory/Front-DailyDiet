@@ -1,0 +1,36 @@
+.isDiet-container {
+    display: flex;
+    justify-content: center;
+    padding-left: 32px;
+    padding-right: 32px;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    color: #639339;
+    font-weight: bold;
+}
+
+h5 {
+    font-size: 16px;
+    color: #1B1D1E;
+}
+
+strong {
+    font-weight: bold;
+    color: #1B1D1E;
+}
+
+.isDiet-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.navigate-button {
+    margin-top: 32px;
+}

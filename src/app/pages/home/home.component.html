@@ -16,12 +16,14 @@
             <h3 class="date-meal">{{ date.key }}</h3>
         </div>
         <ng-container *ngFor="let meal of date.value">
-            <div class="card-custom">
-                <h6 class="card-custom-time">{{ meal.time }}</h6>
-                <i class="barra">|</i>
-                <h5 class="card-custom-title">{{ meal.name }}</h5>
-                <div class="dot-content"><i class="dot"></i></div>
-            </div>
+            <a routerLink="/view-meal/{{ meal.id }}">
+                <div class="card-custom">
+                    <h6 class="card-custom-time">{{ meal.time }}</h6>
+                    <i class="barra">|</i>
+                    <h5 class="card-custom-title">{{ meal.name }}</h5>
+                    <div class="dot-content"><i class="dot"></i></div>
+                </div>
+            </a>
         </ng-container>
     </div>
 </div>

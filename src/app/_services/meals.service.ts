@@ -12,7 +12,6 @@ export class MealsService {
 
   adicionarMeal(meal: Meal) {
     this.meals.push(meal);
-    console.log('Meal added successfully!', meal);
     localStorage.setItem('meals', JSON.stringify(this.meals));
   }
 
@@ -22,5 +21,9 @@ export class MealsService {
       this.meals = JSON.parse(mealsFromStorage);
     }
     return this.meals;
+  }
+
+  getMealById(id: string): Meal | undefined {
+    return this.meals.find(meal => meal.id === id);
   }
 }

@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { HideNavComponent } from '../../components/hide-nav/hide-nav.component';
 import { PrimaryButtonComponent } from '../../components/primary-button/primary-button.component';
 import { SecundaryButtonComponent } from '../../components/secundary-button/secundary-button.component';
+import { MealsService } from '../../_services/meals.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Meal } from '../../interfaces/Meal';
 
 @Component({
   selector: 'app-view-meal',
@@ -10,5 +13,16 @@ import { SecundaryButtonComponent } from '../../components/secundary-button/secu
   styleUrl: './view-meal.component.css'
 })
 export class ViewMealComponent {
+
+  constructor(private mealsService: MealsService, private route: ActivatedRoute) { }
+
+  meal: Meal | undefined;
+
+  ngOnInit() {
+    const mealId = this.route.snapshot.paramMap.get('id');
+    if (mealId) {
+      this.meal = this.mealsService.getMealById(mealId);
+    }
+  }
 
 }

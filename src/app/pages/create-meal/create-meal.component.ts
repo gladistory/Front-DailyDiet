@@ -28,6 +28,10 @@ export class CreateMealComponent {
   };
 
   saveMeal() {
+    if (!this.validateForm()) {
+      alert('Por favor, preencha todos os campos corretamente.');
+      return;
+    }
 
     const isDietBool = Boolean(this.meal.isInDiet === 'true' || this.meal.isInDiet === true);
 
@@ -42,6 +46,13 @@ export class CreateMealComponent {
     } else if (isDietBool === false) {
       this.router.navigate(['/not-is-diet']);
     };
+  }
+
+  validateForm() {
+    if (!this.meal.name || !this.meal.description || !this.meal.date || !this.meal.time || this.meal.isInDiet === '') {
+      return false;
+    }
+    return true;
   }
 
   clearForm() {

@@ -20,7 +20,6 @@ export class HideNavComponent {
 
   ngOnInit() {
     this.meals = this.mealsService.getMeals();
-    console.log('Meals from service:', this.meals);
   }
 
 }

@@ -22,7 +22,7 @@ export class PercentComponent {
   }
 
   ngOnInit() {
-    this.meals = this.mealsService.getMeals();
+    // this.meals = this.mealsService.getMeals();
     this.porcent = this.mealsService.getMealPercent();
   }
 

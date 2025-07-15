@@ -1,45 +1,46 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { CreateMealComponent } from './pages/create-meal/create-meal.component';
-import { ViewMetricsComponent } from './pages/view-metrics/view-metrics.component';
-import { NotIsDietComponent } from './pages/not-is-diet/not-is-diet.component';
-import { IsdietComponent } from './pages/isdiet/isdiet.component';
-import { ViewMealComponent } from './pages/view-meal/view-meal.component';
 
 export const routes: Routes = [
-    {
-        path: '',
-        component: HomeComponent
-    },
 
     {
         path: 'home',
-        component: HomeComponent
+        loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
     },
 
     {
         path: 'create-meal',
-        component: CreateMealComponent
+        loadComponent: () => import('./pages/create-meal/create-meal.component').then(m => m.CreateMealComponent)
     },
 
     {
         path: 'view-metrics',
-        component: ViewMetricsComponent
+        loadComponent: () => import('./pages/view-metrics/view-metrics.component').then(m => m.ViewMetricsComponent)
     },
 
     {
         path: 'not-is-diet',
-        component: NotIsDietComponent
+        loadComponent: () => import('./pages/not-is-diet/not-is-diet.component').then(m => m.NotIsDietComponent)
     },
 
     {
         path: 'is-diet',
-        component: IsdietComponent
+        loadComponent: () => import('./pages/isdiet/isdiet.component').then(m => m.IsdietComponent)
     },
 
     {
         path: 'view-meal/:id',
-        component: ViewMealComponent
+        loadComponent: () => import('./pages/view-meal/view-meal.component').then(m => m.ViewMealComponent)
+    },
+
+    {
+        path: 'login',
+        loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent)
+    },
+
+    {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
     }
 
 ];

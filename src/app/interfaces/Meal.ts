@@ -1,8 +1,7 @@
 export interface Meal {
-    id: string;
     name: string;
     description: string;
-    date: string;
+    data: string;
     time: string;
     isInDiet: string | boolean;
 }

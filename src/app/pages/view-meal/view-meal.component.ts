@@ -25,10 +25,10 @@ export class ViewMealComponent {
   meal: Meal | undefined;
 
   ngOnInit() {
-    const mealId = this.route.snapshot.paramMap.get('id');
-    if (mealId) {
-      this.meal = this.mealsService.getMealById(mealId);
-    }
+    // const mealId = this.route.snapshot.paramMap.get('id');
+    // if (mealId) {
+    //   this.meal = this.mealsService.getMealById(mealId);
+    // }
   }
 
   deleteModal() {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PercentComponent } from "../../components/percent/percent.component";
 import { RouterLink } from '@angular/router';
 import { PrimaryButtonComponent } from "../../components/primary-button/primary-button.component";
@@ -15,23 +15,29 @@ import { FormsModule } from '@angular/forms';
 })
 export class HomeComponent {
   meals: Meal[] = [];
-  mealsByDate: { [date: string]: Meal[] } = {};
+  mealsByDate: { [data: string]: Meal[] } = {};
 
-  constructor(private mealsService: MealsService) { }
+  private mealsService: MealsService = inject(MealsService);
 
   ngOnInit() {
-    this.meals = this.mealsService.getMeals();
-    this.mealsByDate = this.groupMealsByDate(this.meals);
+    this.getAllMeals();
   }
 
-  private groupMealsByDate(meals: Meal[]): { [date: string]: Meal[] } {
+  private groupMealsByDate(meals: Meal[]): { [data: string]: Meal[] } {
     return meals.reduce((acc, meal) => {
-      if (!acc[meal.date]) {
-        acc[meal.date] = [];
+      if (!acc[meal.data]) {
+        acc[meal.data] = [];
       }
-      acc[meal.date].push(meal);
+      acc[meal.data].push(meal);
       return acc;
-    }, {} as { [date: string]: Meal[] });
+    }, {} as { [data: string]: Meal[] });
+  }
+
+  getAllMeals() {
+    this.mealsService.getMeals().subscribe((meals: Meal[]) => {
+      this.meals = meals;
+      this.mealsByDate = this.groupMealsByDate(this.meals);
+    });
   }
 
 }

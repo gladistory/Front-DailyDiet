@@ -11,12 +11,12 @@
         </div>
     </div>
 
-    <div class="home-meals" *ngFor="let date of (mealsByDate | keyvalue)">
+    <div class="home-meals" *ngFor="let data of (mealsByDate | keyvalue)">
         <div class="home-meals-title">
-            <h3 class="date-meal">{{ date.key }}</h3>
+            <h3 class="date-meal">{{ data.key    }}</h3>
         </div>
-        <ng-container *ngFor="let meal of date.value">
-            <a routerLink="/view-meal/{{ meal.id }}">
+        <ng-container *ngFor="let meal of data.value">
+            <a routerLink="/">
                 <div class="card-custom">
                     <h6 class="card-custom-time">{{ meal.time }}</h6>
                     <i class="ph ph-line-vertical barra"></i>

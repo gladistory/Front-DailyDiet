@@ -21,10 +21,10 @@ export class HideNavComponent {
   constructor(private mealsService: MealsService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    const mealId = this.route.snapshot.paramMap.get('id');
-    if (mealId) {
-      this.meal = this.mealsService.getMealById(mealId);
-    }
+    // const mealId = this.route.snapshot.paramMap.get('id');
+    // if (mealId) {
+    //   this.meal = this.mealsService.getMealById(mealId);
+    // }
 
   }
 }

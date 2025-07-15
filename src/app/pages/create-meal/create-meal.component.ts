@@ -4,6 +4,7 @@ import { PrimaryButtonComponent } from '../../components/primary-button/primary-
 import { FormsModule } from '@angular/forms';
 import { Meal } from '../../interfaces/Meal';
 import { MealsService } from '../../_services/meals.service';
+import { inject } from '@angular/core';
 
 
 @Component({
@@ -15,13 +16,14 @@ import { MealsService } from '../../_services/meals.service';
 })
 export class CreateMealComponent {
 
-  constructor(private router: Router, private mealsService: MealsService) { }
+  constructor(private router: Router) { }
+
+  private mealsService: MealsService = inject(MealsService);
 
   meal: Meal = {
-    id: crypto.randomUUID(),
     name: '',
     description: '',
-    date: '',
+    data: '',
     time: '',
     isInDiet: ''
   };
@@ -34,21 +36,30 @@ export class CreateMealComponent {
 
     const isDietBool = Boolean(this.meal.isInDiet === 'true' || this.meal.isInDiet === true);
 
-    this.meal.isInDiet = isDietBool;
-
-    this.mealsService.adicionarMeal(this.meal);
-
-    this.clearForm()
-
-    if (isDietBool === true) {
-      this.router.navigate(['/is-diet']);
-    } else if (isDietBool === false) {
-      this.router.navigate(['/not-is-diet']);
+    const mealToSend: any = {
+      ...this.meal,
+      diet: isDietBool
     };
+    delete mealToSend.isInDiet;
+
+    this.mealsService.adicionarMeal(mealToSend).subscribe({
+      next: () => {
+        this.clearForm();
+
+        if (isDietBool === true) {
+          this.router.navigate(['/is-diet']);
+        } else if (isDietBool === false) {
+          this.router.navigate(['/not-is-diet']);
+        }
+      },
+      error: (error) => {
+        console.error('Error ao adicionar refeição:', error);
+      }
+    });
   }
 
   validateForm() {
-    if (!this.meal.name || !this.meal.description || !this.meal.date || !this.meal.time || this.meal.isInDiet === '') {
+    if (!this.meal.name || !this.meal.description || !this.meal.data || !this.meal.time || this.meal.isInDiet === '') {
       return false;
     }
     return true;
@@ -56,10 +67,9 @@ export class CreateMealComponent {
 
   clearForm() {
     this.meal = {
-      id: crypto.randomUUID(),
       name: '',
       description: '',
-      date: '',
+      data: '',
       time: '',
       isInDiet: ''
     };

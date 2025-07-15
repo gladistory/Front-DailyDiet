@@ -27,13 +27,13 @@ export class DeleteComponent {
     this.meal = data;
   }
 
-  deleteMeal() {
-    if (this.meal) {
-      this.mealsService.deleteMeal(this.meal.id);
-    }
-    this.dialogRef.close();
-    this.router.navigate(['/home']);
-  }
+  // deleteMeal() {
+  //   if (this.meal) {
+  //     this.mealsService.deleteMeal(this.meal.id);
+  //   }
+  //   this.dialogRef.close();
+  //   this.router.navigate(['/home']);
+  // }
 
   closeDialog() {
     this.dialogRef.close();

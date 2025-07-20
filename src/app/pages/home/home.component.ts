@@ -21,6 +21,7 @@ export class HomeComponent {
 
   ngOnInit() {
     this.getAllMeals();
+
   }
 
   private groupMealsByDate(meals: Meal[]): { [data: string]: Meal[] } {

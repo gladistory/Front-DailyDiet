@@ -26,18 +26,18 @@
 
             <div>
                 <label class="form-label-custom">Hora</label>
-                <input type="text" class="form-control" required name="time" [(ngModel)]="meal.time" #horaRef="ngModel">
+                <input type="text" class="form-control" required name="time" [(ngModel)]="meal.created_at" #horaRef="ngModel">
             </div>
         </div>
 
         <label class="form-label-custom mb-1">Está dentro da dieta?</label>
         <div class="d-flex justify-content-between radio-group">
             <input type="radio" class="btn-check" name="isInDiet" id="inDietTrue" value="true"
-                [(ngModel)]="meal.isInDiet">
+                [(ngModel)]="meal.diet">
             <label class="btn button" for="inDietTrue"><i class="dot-green"></i>Sim</label>
 
             <input type="radio" class="btn-check red" name="isInDiet" id="inDietFalse" value="false"
-                [(ngModel)]="meal.isInDiet">
+                [(ngModel)]="meal.diet">
             <label class="btn button" for="inDietFalse"><i class="dot-red"></i>Não</label>
         </div>
 

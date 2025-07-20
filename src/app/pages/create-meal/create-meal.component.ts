@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Meal } from '../../interfaces/Meal';
 import { MealsService } from '../../_services/meals.service';
 import { inject } from '@angular/core';
+import { flush } from '@angular/core/testing';
 
 
 @Component({
@@ -21,11 +22,12 @@ export class CreateMealComponent {
   private mealsService: MealsService = inject(MealsService);
 
   meal: Meal = {
+    id: '',
     name: '',
     description: '',
     data: '',
-    time: '',
-    isInDiet: ''
+    created_at: '',
+    diet: false
   };
 
   saveMeal() {
@@ -33,22 +35,15 @@ export class CreateMealComponent {
       alert('Por favor, preencha todos os campos corretamente.');
       return;
     }
+   if (typeof this.meal.diet === 'string') {
+      this.meal.diet = this.meal.diet === "true";
+    } 
 
-    const isDietBool = Boolean(this.meal.isInDiet === 'true' || this.meal.isInDiet === true);
-
-    const mealToSend: any = {
-      ...this.meal,
-      diet: isDietBool
-    };
-    delete mealToSend.isInDiet;
-
-    this.mealsService.adicionarMeal(mealToSend).subscribe({
+    this.mealsService.adicionarMeal(this.meal).subscribe({
       next: () => {
-        this.clearForm();
-
-        if (isDietBool === true) {
+        if (this.meal.diet === true) {
           this.router.navigate(['/is-diet']);
-        } else if (isDietBool === false) {
+        } else if (this.meal.diet === false) {
           this.router.navigate(['/not-is-diet']);
         }
       },
@@ -59,7 +54,7 @@ export class CreateMealComponent {
   }
 
   validateForm() {
-    if (!this.meal.name || !this.meal.description || !this.meal.data || !this.meal.time || this.meal.isInDiet === '') {
+    if (!this.meal.name || !this.meal.description || !this.meal.data || !this.meal.created_at || this.meal.diet === undefined) {
       return false;
     }
     return true;
@@ -67,11 +62,12 @@ export class CreateMealComponent {
 
   clearForm() {
     this.meal = {
+      id: '',
       name: '',
       description: '',
       data: '',
-      time: '',
-      isInDiet: ''
+      created_at: '',
+      diet: false
     };
   }
 

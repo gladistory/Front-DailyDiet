@@ -21,17 +21,17 @@ export class ViewMetricsComponent {
 
   ngOnInit() {
 
-    this.getAllMetrics();
+    // this.getAllMetrics();
 
   }
 
 
-  getAllMetrics() {
-    this.porcent = this.mealsService.getMealPercent();
-    this.totalMeals = this.mealsService.getTotalMeals();
-    this.totalInDietMeals = this.mealsService.getTotalInDietMeals();
-    this.totalOutDietMeals = this.mealsService.getTotalOutDietMeals();
-    this.bestSeries = this.mealsService.getBestSeries();
-  }
+  // getAllMetrics() {
+  //   this.porcent = this.mealsService.getMealPercent();
+  //   this.totalMeals = this.mealsService.getTotalMeals();
+  //   this.totalInDietMeals = this.mealsService.getTotalInDietMeals();
+  //   this.totalOutDietMeals = this.mealsService.getTotalOutDietMeals();
+  //   this.bestSeries = this.mealsService.getBestSeries();
+  // }
 
 }

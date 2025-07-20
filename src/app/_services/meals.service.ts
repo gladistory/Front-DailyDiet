@@ -1,9 +1,9 @@
 import { Injectable, inject } from '@angular/core';
 import { Meal } from '../interfaces/Meal';
 import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { environment } from '../../environments/environment.development';
 
 
 
@@ -16,7 +16,7 @@ export class MealsService {
   porcent: number = 0;
 
   private http = inject(HttpClient);
-  private apiUrl = ' http://localhost:3000/meals';
+  private apiUrl = environment.apiUrl + '/meals';
   private authService = inject(AuthService);
 
 
@@ -30,9 +30,10 @@ export class MealsService {
     return this.http.get<Meal[]>(this.apiUrl, { headers });
   }
 
-  // getMealById(id: string): Meal | undefined {
-  //   return this.meals.find(meal => meal.id === id);
-  // }
+  getMealById(id: string): Observable<Meal> {
+    const headers = this.authService.setHeaders();
+    return this.http.get<Meal>(`${this.apiUrl}/${id}`, { headers });
+  }
 
   // deleteMeal(id: string): void {
   //   this.meals = this.meals.filter(meal => meal.id !== id);
@@ -42,7 +43,7 @@ export class MealsService {
 
   getMealPercent() {
     const totalMeals = this.meals.length;
-    const inDietMeals = this.meals.filter(meal => meal.isInDiet).length;
+    const inDietMeals = this.meals.filter(meal => meal.diet).length;
 
     if (totalMeals === 0) {
       return this.porcent = 0;
@@ -56,11 +57,11 @@ export class MealsService {
   }
 
   getTotalInDietMeals() {
-    return this.meals.filter(meal => meal.isInDiet).length;
+    return this.meals.filter(meal => meal.diet).length;
   }
 
   getTotalOutDietMeals() {
-    return this.meals.filter(meal => !meal.isInDiet).length;
+    return this.meals.filter(meal => !meal.diet).length;
   }
 
   getBestSeries() {
@@ -72,7 +73,7 @@ export class MealsService {
     let currentSeries = 0;
 
     this.meals.forEach(meal => {
-      if (meal.isInDiet) {
+      if (meal.diet) {
         currentSeries++;
         if (currentSeries > bestSeries) {
           bestSeries = currentSeries;

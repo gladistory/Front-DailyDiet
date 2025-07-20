@@ -25,10 +25,14 @@ export class ViewMealComponent {
   meal: Meal | undefined;
 
   ngOnInit() {
-    // const mealId = this.route.snapshot.paramMap.get('id');
-    // if (mealId) {
-    //   this.meal = this.mealsService.getMealById(mealId);
-    // }
+    this.mealsService.getMealById(this.route.snapshot.params['id']).subscribe({
+      next: (meal) => {
+        this.meal = meal;
+      },
+      error: (error) => {
+        console.error('Error fetching meal:', error);
+      }
+    });
   }
 
   deleteModal() {

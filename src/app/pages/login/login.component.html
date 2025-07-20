@@ -4,5 +4,8 @@
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="Digite seu email" required [(ngModel)]="email" />
         <button (click)="login()" class="primary-btn">Entrar</button>
+        <div class="text-center">
+        <p>Não tem uma conta? <a style=" text-decoration: underline;" routerLink="/register">Registrar</a></p>
+    </div>
     </form>
 </div>

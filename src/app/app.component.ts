@@ -18,7 +18,7 @@ export class AppComponent {
     '/view-metrics',
     '/create-meal',
     '/is-diet',
-    '/not-is-diet'
+    '/not-is-diet',
   ];
 
   private readonly hiddenNavbarPatterns = [

@@ -1,0 +1,13 @@
+<div class="login-container">
+    <form class="login-form">
+        <h2>Registrar</h2>
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" placeholder="Digite seu nome" required [(ngModel)]="name" />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu email" required [(ngModel)]="email" />
+        <button (click)="register()" class="primary-btn">Registrar</button>
+        <div class="text-center">
+        <p>Já tem uma conta? <a style=" text-decoration: underline;" routerLink="/login">Entrar</a></p>
+    </div>
+    </form>
+</div>

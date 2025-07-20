@@ -13,15 +13,15 @@
 
     <div class="home-meals" *ngFor="let data of (mealsByDate | keyvalue)">
         <div class="home-meals-title">
-            <h3 class="date-meal">{{ data.key    }}</h3>
+            <h3 class="date-meal">{{ data.key }}</h3>
         </div>
         <ng-container *ngFor="let meal of data.value">
-            <a routerLink="/">
+            <a routerLink="/view-meal/{{ meal.id }}" class="card-custom-link">
                 <div class="card-custom">
-                    <h6 class="card-custom-time">{{ meal.time }}</h6>
+                    <h6 class="card-custom-time">{{ meal.data }}</h6>
                     <i class="ph ph-line-vertical barra"></i>
                     <h5 class="card-custom-title">{{ meal.name }}</h5>
-                    <div class="dot-content"><i class="{{ meal.isInDiet ? 'dot-green' : 'dot-red' }}"></i></div>
+                    <div class="dot-content"><i class="{{ meal.diet === true ? 'dot-green' : 'dot-red' }}"></i></div>
                 </div>
             </a>
         </ng-container>

@@ -20,25 +20,27 @@ import { DeleteComponent } from './deleteModal/delete/delete.component';
 })
 export class ViewMealComponent {
 
-  constructor(private mealsService: MealsService, private route: ActivatedRoute, private router: Router, private dialog: MatDialog) { }
+  constructor(private mealsService: MealsService, private route: ActivatedRoute, private dialog: MatDialog) { }
 
   meal: Meal | undefined;
 
   ngOnInit() {
-    this.mealsService.getMealById(this.route.snapshot.params['id']).subscribe({
-      next: (meal) => {
-        this.meal = meal;
-      },
-      error: (error) => {
-        console.error('Error fetching meal:', error);
-      }
-    });
+    this.getMealById();
   }
 
   deleteModal() {
     this.dialog.open(DeleteComponent, {
       data: this.meal,
     });
+  }
+
+  getMealById(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.mealsService.getMealById(id).subscribe((meal: Meal) => {
+        this.meal = meal;
+      });
+    }
   }
 
 

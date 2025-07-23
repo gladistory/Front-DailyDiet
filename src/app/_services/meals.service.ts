@@ -35,55 +35,14 @@ export class MealsService {
     return this.http.get<Meal>(`${this.apiUrl}/${id}`, { headers });
   }
 
-  // deleteMeal(id: string): void {
-  //   this.meals = this.meals.filter(meal => meal.id !== id);
-  //   localStorage.setItem('meals', JSON.stringify(this.meals));
-  // }
-
-
-  getMealPercent() {
-    const totalMeals = this.meals.length;
-    const inDietMeals = this.meals.filter(meal => meal.diet).length;
-
-    if (totalMeals === 0) {
-      return this.porcent = 0;
-    }
-
-    return this.porcent = parseFloat(((inDietMeals / totalMeals) * 100).toFixed(2));
+  getMetrics(): Observable<any> {
+    const headers = this.authService.setHeaders();
+    return this.http.get<any>(`${this.apiUrl}/metrics`, { headers });
   }
 
-  getTotalMeals() {
-    return this.meals.length;
-  }
-
-  getTotalInDietMeals() {
-    return this.meals.filter(meal => meal.diet).length;
-  }
-
-  getTotalOutDietMeals() {
-    return this.meals.filter(meal => !meal.diet).length;
-  }
-
-  getBestSeries() {
-    const mealsFromStorage = localStorage.getItem('meals');
-    if (mealsFromStorage) {
-      this.meals = JSON.parse(mealsFromStorage);
-    }
-    let bestSeries = 0;
-    let currentSeries = 0;
-
-    this.meals.forEach(meal => {
-      if (meal.diet) {
-        currentSeries++;
-        if (currentSeries > bestSeries) {
-          bestSeries = currentSeries;
-        }
-      } else {
-        currentSeries = 0;
-      }
-    });
-
-    return bestSeries;
+  deleteMeal(id: string): Observable<void> {
+    const headers = this.authService.setHeaders();
+    return this.http.delete<void>(`${this.apiUrl}/${id}`, { headers });
   }
 
 }

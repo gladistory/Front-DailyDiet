@@ -1,8 +1,15 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideNgxMask } from 'ngx-mask';
 import { provideRouter } from '@angular/router';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient(), HttpClient],
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideHttpClient(),
+    HttpClient,
+    provideNgxMask()
+  ],
 };

@@ -26,7 +26,11 @@ export class LoginComponent {
 
     this.authService.login(this.email).subscribe((res) => {
      localStorage.setItem('sessionId', res.sessionId);
-     this.router.navigate(['/home']);
+     if (!localStorage.getItem('sessionId')) {
+        alert('Erro ao fazer login. Por favor, tente novamente.');
+     } else {
+       this.router.navigate(['/home']);
+     }
     });
   }
 

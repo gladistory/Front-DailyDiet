@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MealsService } from '../../_services/meals.service';
 import { Meal } from '../../interfaces/Meal';
@@ -13,17 +13,5 @@ import { CommonModule } from '@angular/common';
 })
 export class PercentComponent {
   @Input() link: string = '';
-
-  meals: Meal[] = [];
-
-  porcent: number = 0;
-
-  constructor(private mealsService: MealsService) {
-  }
-
-  ngOnInit() {
-    // this.meals = this.mealsService.getMeals();
-    this.porcent = this.mealsService.getMealPercent();
-  }
-
+  @Input() percent: number = 0;
 }

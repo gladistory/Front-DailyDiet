@@ -3,7 +3,7 @@
         <a class="link-logo" routerLink="/home">
             <img src="navbar/Logo.png" alt="logo">
         </a>
-        <div *ngIf="isAuthenticated" class="border-img">
+        <div *ngIf="isAuthenticated === false" class="border-img">
             <button (click)="logout()"><img class="user" style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #000;" src="navbar/image.png" alt=""><span class="logo-text" style="margin-top: 50px;">{{ userName }}</span></button>
         </div>
     </div>

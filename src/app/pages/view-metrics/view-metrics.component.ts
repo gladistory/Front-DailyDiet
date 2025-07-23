@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MealsService } from '../../_services/meals.service';
 import { CommonModule } from '@angular/common';
+import { Meal } from '../../interfaces/Meal';
+
 
 @Component({
   selector: 'app-view-metrics',
@@ -10,28 +12,30 @@ import { CommonModule } from '@angular/common';
   styleUrl: './view-metrics.component.css'
 })
 export class ViewMetricsComponent {
-
+  metrics: any;
   porcent: number = 0;
   totalMeals: number = 0;
   totalInDietMeals: number = 0;
   totalOutDietMeals: number = 0;
-  bestSeries: number = 0;
 
-  constructor(private mealsService: MealsService) { }
+
+  private mealsService: MealsService = inject(MealsService);
 
   ngOnInit() {
 
-    // this.getAllMetrics();
+    this.getAllMetrics();
 
   }
 
 
-  // getAllMetrics() {
-  //   this.porcent = this.mealsService.getMealPercent();
-  //   this.totalMeals = this.mealsService.getTotalMeals();
-  //   this.totalInDietMeals = this.mealsService.getTotalInDietMeals();
-  //   this.totalOutDietMeals = this.mealsService.getTotalOutDietMeals();
-  //   this.bestSeries = this.mealsService.getBestSeries();
-  // }
-
+  getAllMetrics() {
+  this.mealsService.getMetrics().subscribe((metrics) => {
+      const metric = metrics.metrics;
+      this.metrics = metrics;
+      this.totalMeals = metric.totalMeals;
+      this.totalInDietMeals = metric.totalDietMeals;
+      this.totalOutDietMeals = metric.totalNonDietMeals;
+      this.porcent = metric.porcentageDietMeals;
+  });
+}
 }

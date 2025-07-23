@@ -16,12 +16,14 @@ import { FormsModule } from '@angular/forms';
 export class HomeComponent {
   meals: Meal[] = [];
   mealsByDate: { [data: string]: Meal[] } = {};
+  metrics: any = {};
+  percent: number = 0;
 
   private mealsService: MealsService = inject(MealsService);
 
   ngOnInit() {
     this.getAllMeals();
-
+    this.getMetrics();
   }
 
   private groupMealsByDate(meals: Meal[]): { [data: string]: Meal[] } {
@@ -38,6 +40,13 @@ export class HomeComponent {
     this.mealsService.getMeals().subscribe((meals: Meal[]) => {
       this.meals = meals;
       this.mealsByDate = this.groupMealsByDate(this.meals);
+    });
+  }
+
+  getMetrics() {
+    this.mealsService.getMetrics().subscribe((metrics) => {
+     const metric = metrics.metrics;
+      this.percent = metric.porcentageDietMeals;
     });
   }
 

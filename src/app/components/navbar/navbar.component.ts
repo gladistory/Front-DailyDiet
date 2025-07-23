@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink, Router } from '@angular/router';
+import { RouterLink, Router, NavigationEnd } from '@angular/router';
 import { AuthService } from '../../_services/auth.service';
 import { CommonModule } from '@angular/common';
 @Component({
@@ -23,9 +23,12 @@ export class NavbarComponent {
 
   ngOnInit() {
 
-    if (this.hiddenNavbarRoutes.includes(this.router.url)) {
-      this.isAuthenticated = true;
-    }
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const currentUrl = event.urlAfterRedirects;
+        this.isAuthenticated = this.hiddenNavbarRoutes.includes(currentUrl);
+      }
+    });
 
     this.authService.getUserInfo().subscribe({
       next: (res) => {

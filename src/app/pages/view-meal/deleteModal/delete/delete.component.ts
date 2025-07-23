@@ -27,16 +27,22 @@ export class DeleteComponent {
     this.meal = data;
   }
 
-  // deleteMeal() {
-  //   if (this.meal) {
-  //     this.mealsService.deleteMeal(this.meal.id);
-  //   }
-  //   this.dialogRef.close();
-  //   this.router.navigate(['/home']);
-  // }
+ deleteMeal() {
+  if (this.meal) {
+    this.mealsService.deleteMeal(this.meal.id).subscribe({
+      next: () => {
+        this.dialogRef.close();
+        this.router.navigate(['/home']);
+      },
+      error: (err) => {
+        // Aqui você pode exibir uma mensagem de erro se quiser
+        console.error('Erro ao deletar refeição:', err);
+      }
+    });
+   }
+  }
 
   closeDialog() {
     this.dialogRef.close();
   }
-
 }

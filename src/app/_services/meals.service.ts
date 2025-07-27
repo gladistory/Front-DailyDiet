@@ -45,4 +45,8 @@ export class MealsService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`, { headers });
   }
 
+  editMeals(meal: Meal): Observable<Meal> {
+    const headers = this.authService.setHeaders();
+    return this.http.put<Meal>(`${this.apiUrl}/${meal.id}`, meal, { headers });
+  }
 }

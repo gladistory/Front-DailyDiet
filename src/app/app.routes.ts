@@ -50,6 +50,12 @@ export const routes: Routes = [
     },
 
     {
+        path: 'edit-meal/:id',
+        canActivate: [authGuard],
+        loadComponent: () => import('./pages/view-meal/edit-meal/edit-meal.component').then(m => m.EditMealComponent)
+    },
+
+    {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'

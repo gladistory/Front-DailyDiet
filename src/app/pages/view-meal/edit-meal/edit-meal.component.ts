@@ -1,25 +1,33 @@
 import { Component } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
-import { PrimaryButtonComponent } from '../../components/primary-button/primary-button.component';
+import { PrimaryButtonComponent } from '../../../components/primary-button/primary-button.component';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskDirective } from 'ngx-mask';
-import { Meal } from '../../interfaces/Meal';
-import { MealsService } from '../../_services/meals.service';
+import { Meal } from '../../../interfaces/Meal';
 import { inject } from '@angular/core';
-
+import { MealsService } from '../../../_services/meals.service';
 
 @Component({
-  selector: 'app-create-meal',
-  standalone: true,
-  imports: [PrimaryButtonComponent, FormsModule, RouterLink, NgxMaskDirective],
-  templateUrl: './create-meal.component.html',
-  styleUrl: './create-meal.component.css'
+  selector: 'app-edit-meal',
+  imports: [FormsModule, PrimaryButtonComponent, RouterLink, NgxMaskDirective],
+  templateUrl: './edit-meal.component.html',
+  styleUrl: './edit-meal.component.css'
 })
-export class CreateMealComponent {
+export class EditMealComponent {
 
+  
   private router: Router = inject(Router);
 
   private mealsService: MealsService = inject(MealsService);
+
+  ngOnInit() {
+    const id = this.router.url.split('/').pop();
+    if (id) {
+      this.mealsService.getMealById(id).subscribe((meal: Meal) => {
+        this.meal = meal;
+      });
+    }
+  }
 
   meal: Meal = {
     id: '',
@@ -28,7 +36,7 @@ export class CreateMealComponent {
     data: '',
     hora: '',
     created_at: '',
-    diet: null 
+    diet: false
   };
 
   saveMeal() {
@@ -39,13 +47,9 @@ export class CreateMealComponent {
 
     this.meal.data = this.formatDate(this.meal.data);
 
-    this.mealsService.adicionarMeal(this.meal).subscribe({
+    this.mealsService.editMeals(this.meal).subscribe({
       next: () => {
-        if (this.meal.diet === true) {
-          this.router.navigate(['/is-diet']);
-        } else if (this.meal.diet === false) {
-          this.router.navigate(['/not-is-diet']);
-        }
+        this.router.navigate(['/view-meal/' + this.meal.id]);
       },
       error: (error) => {
         console.error('Error ao adicionar refeição:', error);
@@ -85,5 +89,8 @@ export class CreateMealComponent {
     }
     return data;
   }
+
+
+
 
 }

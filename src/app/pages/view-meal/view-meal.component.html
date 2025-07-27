@@ -4,8 +4,8 @@
     <div class="meal-item">
         <h6 class="meal-name">{{meal?.name}}</h6>
         <p class="meal-description">{{meal?.description}}</p>
-        <p class="meal-date">{{meal?.data}}</p>
-        <p class="meal-date-time">{{meal?.created_at}}</p>
+        <p class="meal-date">Data e hora</p>
+        <p class="meal-date-time">{{meal?.data}} às {{meal?.hora}}</p>
         <p class="meal-diet"><i
                 class="{{meal?.diet ? 'dot-green' : 'dot-red'}}"></i>{{meal?.diet ? 'dentro da dieta' : 'fora da dieta'}}
         </p>
@@ -14,7 +14,7 @@
     <div class="meal-actions">
         <div class="mb-2">
             <app-primary-button [textPrimaryButton]="'Editar refeição'"
-                [icon]="'ph ph-pencil-simple-line'"></app-primary-button>
+                [icon]="'ph ph-pencil-simple-line'" (click)="navigateToEditMeal()"></app-primary-button>
         </div>
         <app-secundary-button (click)="deleteModal()" [textSecundaryButton]="'Excluir refeição'"
             [icon]="'ph ph-trash'"></app-secundary-button>

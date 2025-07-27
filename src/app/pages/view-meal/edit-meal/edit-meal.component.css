@@ -101,7 +101,6 @@ textarea:focus {
     z-index: 100;
 }
 
-
 .dot-green {
     width: 8px;
     height: 8px;
@@ -141,5 +140,6 @@ textarea:focus {
   border: 1px solid #BF3B44;
   background: #FDEDED;
 }
+
 
 

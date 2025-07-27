@@ -1,7 +1,7 @@
 <div class="card-custom">
     <div class="card-body">
         <a routerLink="/home"><i class="ph ph-arrow-left"></i></a>
-        <h6 class="card-custom-subtitle">Nova refeição</h6>
+        <h6 class="card-custom-subtitle">Editar Refeição</h6>
     </div>
     <div class="metrics-container"></div>
 </div>
@@ -24,11 +24,6 @@
                 <input type="text" class="form-control" required name="data" [(ngModel)]="meal.data" #dataRef="ngModel" mask="00.00.0000">
             </div>
 
-             <div>
-                <label class="form-label-custom">Hora</label>
-                <input type="text" class="form-control" required name="hora" [(ngModel)]="meal.hora" #horaRef="ngModel" mask="00:00">
-            </div>
-
         </div>
 
         <label class="form-label-custom mb-1">Está dentro da dieta?</label>
@@ -43,7 +38,7 @@
         </div>
 
         <div class="action-button">
-            <app-primary-button [textPrimaryButton]="'Cadastrar refeição'" (click)="saveMeal()"></app-primary-button>
+            <app-primary-button [textPrimaryButton]="'Salvar alterações'" (click)="saveMeal()"></app-primary-button>
         </div>
     </div>
 </form>

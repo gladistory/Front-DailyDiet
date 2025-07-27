@@ -22,7 +22,8 @@ export class AppComponent {
   ];
 
   private readonly hiddenNavbarPatterns = [
-    /^\/view-meal\/[^\/]+$/
+    /^\/view-meal\/[^\/]+$/,
+    /^\/edit-meal\/[^\/]+$/,
   ];
 
   get hideNavbar() {

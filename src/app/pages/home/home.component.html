@@ -18,7 +18,7 @@
         <ng-container *ngFor="let meal of data.value">
             <a routerLink="/view-meal/{{ meal.id }}" class="card-custom-link">
                 <div class="card-custom">
-                    <h6 class="card-custom-time">{{ meal.created_at | date:'HH:mm' }}</h6>
+                    <h6 class="card-custom-time">{{ meal.hora }}</h6>
                     <i class="ph ph-line-vertical barra"></i>
                     <h5 class="card-custom-title">{{ meal.name }}</h5>
                     <div class="dot-content"><i class="{{ meal.diet === true ? 'dot-green' : 'dot-red' }}"></i></div>

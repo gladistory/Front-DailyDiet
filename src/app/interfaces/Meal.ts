@@ -3,6 +3,7 @@ export interface Meal {
     name: string;
     description: string;
     data: string;
+    hora: string;
     created_at: string;
-    diet: boolean;
+    diet: boolean | null;
 }

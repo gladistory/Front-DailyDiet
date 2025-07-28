@@ -1,59 +1,72 @@
-# FrontDailyDiet
+# Documentação Técnica: FrontDailyDiet
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
+## Objetivo
+Esta página documenta a estrutura técnica e principais funcionalidades do projeto **FrontDailyDiet**, servindo como referência para desenvolvedores e demais interessados.
 
-## Development server
+## Visão Geral do Projeto
+- **Descrição**: O FrontDailyDiet é uma aplicação web desenvolvida em Angular para controle de refeições diárias, permitindo ao usuário registrar, editar, excluir e visualizar refeições, além de acompanhar métricas relacionadas à dieta.
+- **Principais Funcionalidades**:
+  - Cadastro, edição e exclusão de refeições
+  - Autenticação de usuários (login e registro)
+  - Visualização de métricas e estatísticas das refeições (percentual dentro/fora da dieta, totais)
+  - Proteção de rotas via guarda de autenticação
+  - Interface responsiva e componentes reutilizáveis
+  - Agrupamento de refeições por data
+  - Feedback visual sobre o status da dieta (dentro/fora)
 
-To start a local development server, run:
+## Stack Tecnológico
+- **Linguagem:** TypeScript
+- **Framework Frontend:** Angular
+- **Outros:** HTML, CSS/SCSS
 
-```bash
-ng serve
+## Padrões de Codificação
+- Organização modular dos componentes
+- Uso de services para lógica de negócio e integração com APIs
+- Separação de responsabilidades (componentes, serviços, interfaces)
+- Convenções de nomenclatura Angular
+
+## Estrutura do Projeto
+```
+src/
+  app/
+    _services/            # Serviços de autenticação e refeições
+      auth.service.ts
+      meals.service.ts
+    auth/                 # Guardas de autenticação
+      auth.guard.ts
+    components/           # Componentes reutilizáveis
+      hide-nav/
+      navbar/
+      percent/
+      primary-button/
+      secundary-button/
+    interfaces/           # Tipagens TypeScript
+      Meal.ts
+      Metrics.ts
+      User.ts
+    pages/                # Páginas principais
+      create-meal/
+      home/
+      isdiet/
+      login/
+      not-is-diet/
+      register/
+      view-meal/
+        deleteModal/
+        edit-meal/
+      view-metrics/
+    app.component.*        # Arquivo principal do componente raiz
+    app.config.ts          # Configuração do app
+    app.routes.ts          # Rotas da aplicação
+  environments/            # Configurações de ambiente
+  assets/                  # Imagens e recursos estáticos
+  styles.css, main.ts      # Arquivos globais
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Arquitetura
+- **Componentes**: Responsáveis pela interface e interação com o usuário.
+- **Serviços**: Centralizam chamadas HTTP e lógica de negócio.
+- **Guards**: Controle de rotas e autenticação.
+- **Interfaces**: Definem contratos de dados (ex: `Meal`, `User`).
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
